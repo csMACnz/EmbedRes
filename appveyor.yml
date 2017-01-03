@@ -9,8 +9,6 @@ build_script:
 
     cd src\csMACnz.EmbedRes
 
-    #TODO: Version
-
     dotnet version $env:APPVEYOR_BUILD_VERSION
 
     cd ..\..\
