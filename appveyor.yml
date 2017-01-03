@@ -7,9 +7,15 @@ build_script:
 
     #TODO: Test
 
+    cd src\csMACnz.EmbedRes
+
     #TODO: Version
+
+    dotnet version $env:APPVEYOR_BUILD_VERSION
+
+    cd ..\..\
 
     dotnet pack -c Release -o . .\src\csMACnz.EmbedRes\project.json
 artifacts:
 - path: csMACnz.EmbedRes.*.nupkg
-  name: nuget
+  name: nuget   
