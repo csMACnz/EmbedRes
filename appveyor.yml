@@ -1,0 +1,11 @@
+version: 1.0.{build}
+build_script:
+- ps: >-
+    dotnet restore
+    dotnet build -c Release .\src\csMACnz.EmbedRes\project.json
+    #TODO: Test
+    #TODO: Version
+    dotnet pack -c Release -o . .\src\csMACnz.EmbedRes\project.json
+artifacts:
+- path: csMACnz.EmbedRes.*.nupkg
+  name: nuget
