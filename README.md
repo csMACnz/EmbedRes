@@ -1,6 +1,12 @@
 csMACnz.EmbedRes
 ================
 
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://csmacnz.mit-license.org)
+[![NuGet](https://img.shields.io/nuget/v/csMACnz.EmbedRes.svg)](https://www.nuget.org/packages/csMACnz.EmbedRes)
+[![NuGet](https://img.shields.io/nuget/dt/csMACnz.EmbedRes.svg)](https://www.nuget.org/packages/csMACnz.EmbedRes)
+
+[![AppVeyor Build status](https://img.shields.io/appveyor/ci/MarkClearwater/embedres.svg)](https://ci.appveyor.com/project/MarkClearwater/embedres)
+
 Some helpful stuff to use embedded resources with dotnet.
 
 To use
