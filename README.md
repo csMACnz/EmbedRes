@@ -12,58 +12,71 @@ To use
 3. Create a `.cs` file to match the name of the resource folder.
 4. Add the following code to your cs file:
 
-```
-    public static class MyResources
+``` csharp
+public static class MyResources
+{
+    public static string Resource1 => GetFileContents("Resource1.txt");
+
+    public static string Resource2 => GetFileContents("Resource2.sql");
+
+    public static string GetFileContents(string resourceName)
     {
-        public static string Resource1 => GetFileContents("Resource1.txt");
-
-        public static string Resource2 => GetFileContents("Resource2.sql");
-
-        public static string GetFileContents(string resourceName)
-        {
-            return ResourceLoader.GetContentFromFolderMatchingTypeName<MyResources>(resourceName);
-        }
+        return ResourceLoader.GetContentFromFolderMatchingTypeName<MyResources>(resourceName);
     }
+}
 ```
 
 5. Make sure you embed your resources by the following to the `project.json` file.
 
-```
+``` json
 {
   "version": "1.0.0-*",
   "buildOptions": {
     "debugType": "portable",
     "embed": [ "MyResources/*.*" ]
   }
+}
 ```
 
+or in your csproj:
+
+``` xml
+<Project Sdk="Microsoft.NET.Sdk">
+...
+  <ItemGroup>
+    <EmbeddedResource Include="MyResources\Resource1.txt" />
+    <EmbeddedResource Include="MyResources\Resource2.sql" />
+  </ItemGroup>
+...
+</Project>
+```
 
 Advanced Usage
 --------------
 
 If you are comfortable with the above, try using these helpers for more 'magic' (a.k.a convention):
 
-```
-    public static class MyResources
+``` csharp
+public static class MyResources
+{
+    public static string Resource1 => GetTextContents();
+
+    public static string Resource2 => GetSqlContents();
+
+    public static string GetTextContents([CallerMemberName] string resourceName = null)
     {
-        public static string Resource1 => GetTextContents();
-
-        public static string Resource2 => GetSqlContents();
-
-        public static string GetTextContents([CallerMemberName] string resourceName = null)
-        {
-            return GetFileContents($"{resourceName}.txt");
-        }
-        
-        public static string GetSqlContents([CallerMemberName] string resourceName = null)
-        {
-            return GetFileContents($"{resourceName}.sql");
-        }
-
-        // This can be much simpler if you only have one filetype/extension
-        public static string GetFileContents(string resourceName)
-        {
-            return ResourceLoader.GetContentFromFolderMatchingTypeName<MyResources>(resourceName);
-        }
+        return GetFileContents($"{resourceName}.txt");
     }
+
+    public static string GetSqlContents([CallerMemberName] string resourceName = null)
+    {
+        return GetFileContents($"{resourceName}.sql");
+    }
+
+    // This can be much simpler if you only have one filetype/extension
+    public static string GetFileContents(string resourceName)
+    {
+        return ResourceLoader.GetContentFromFolderMatchingTypeName<MyResources>(resourceName);
+    }
+}
 ```
