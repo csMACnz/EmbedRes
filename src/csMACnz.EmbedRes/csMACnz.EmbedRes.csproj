@@ -5,11 +5,15 @@
     <AssemblyTitle>EmbedRes</AssemblyTitle>
     <NeutralLanguage>en-NZ</NeutralLanguage>
     <Authors>csMACnz</Authors>
+    <VersionPrefix>0.0.1</VersionPrefix>
     <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DebugType>portable</DebugType>
     <AssemblyName>csMACnz.EmbedRes</AssemblyName>
     <PackageId>csMACnz.EmbedRes</PackageId>
+    <PackageLicenseUrl>https://github.com/csMACnz/EmbedRes/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/csMACnz/EmbedRes</PackageProjectUrl>
+    <PackageTags>Embedded Resources;EmbeddedResources;Resource;</PackageTags>
     <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.3' ">1.6.0</NetStandardImplicitPackageVersion>
   </PropertyGroup>
 
