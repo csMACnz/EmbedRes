@@ -52,12 +52,12 @@ If you are comfortable with the above, try using these helpers for more 'magic' 
 
         public static string GetTextContents([CallerMemberName] string resourceName = null)
         {
-            return GetFileContents($"{resourceName}.txt")
+            return GetFileContents($"{resourceName}.txt");
         }
         
         public static string GetSqlContents([CallerMemberName] string resourceName = null)
         {
-            return GetFileContents($"{resourceName}.sql")
+            return GetFileContents($"{resourceName}.sql");
         }
 
         // This can be much simpler if you only have one filetype/extension
