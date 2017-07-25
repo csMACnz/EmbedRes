@@ -3,17 +3,14 @@ build_script:
 - ps: >-
     dotnet restore
 
-    dotnet build -c Release .\src\csMACnz.EmbedRes\project.json
+    dotnet build -c Release csMACnz.EmbedRes.sln /property:VersionPrefix=$env:APPVEYOR_BUILD_VERSION
 
-    #TODO: Test
+    #TODO Test
+    
+    #dotnet test -c Release .\test\csMACnz.FluentJsonBuilder.Tests\csMACnz.FluentJsonBuilder.Tests.csproj
 
-    cd src\csMACnz.EmbedRes
-
-    dotnet version $env:APPVEYOR_BUILD_VERSION
-
-    cd ..\..\
-
-    dotnet pack -c Release -o . .\src\csMACnz.EmbedRes\project.json
+    dotnet pack -c Release -o ${pwd} .\src\csMACnz.EmbedRes\csMACnz.EmbedRes.csproj /property:VersionPrefix=$env:APPVEYOR_BUILD_VERSION
+test: off
 artifacts:
 - path: csMACnz.EmbedRes.*.nupkg
   name: nuget   
