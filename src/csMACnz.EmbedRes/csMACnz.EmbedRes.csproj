@@ -6,20 +6,21 @@
     <NeutralLanguage>en-NZ</NeutralLanguage>
     <Authors>csMACnz</Authors>
     <VersionPrefix>0.0.1</VersionPrefix>
-    <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DebugType>portable</DebugType>
+    <DebugType>embedded</DebugType>
     <AssemblyName>csMACnz.EmbedRes</AssemblyName>
     <PackageId>csMACnz.EmbedRes</PackageId>
-    <PackageLicenseUrl>https://github.com/csMACnz/EmbedRes/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/csMACnz/EmbedRes</PackageProjectUrl>
     <PackageTags>Embedded Resources;EmbeddedResources;Resource;</PackageTags>
-    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.3' ">1.6.0</NetStandardImplicitPackageVersion>
+    
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
-
 </Project>

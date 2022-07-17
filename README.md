@@ -32,19 +32,7 @@ public static class MyResources
 }
 ```
 
-5. Make sure you embed your resources by the following to the `project.json` file.
-
-``` json
-{
-  "version": "1.0.0-*",
-  "buildOptions": {
-    "debugType": "portable",
-    "embed": [ "MyResources/*.*" ]
-  }
-}
-```
-
-or in your csproj:
+5. Make sure you embed your resources by the following in your csproj:
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
